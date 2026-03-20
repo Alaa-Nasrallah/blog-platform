@@ -18,7 +18,6 @@ const PostPage = () => {
   const [commentRating, setCommentRating] = useState(5);
   const [submitting, setSubmitting] = useState(false);
 
-  // MOVE THIS FUNCTION ABOVE useEffect
   const fetchPostAndComments = async () => {
     try {
       setLoading(true);
@@ -35,7 +34,6 @@ const PostPage = () => {
     }
   };
 
-// Fixed infinite loop - only depend on id
   useEffect(() => {
     fetchPostAndComments();
   }, [id]);
@@ -117,16 +115,17 @@ const PostPage = () => {
           </div>
         )}
         
-        <div className="post-content">
-          {post.content}
-        </div>
+        <div 
+  className="post-content" 
+  dangerouslySetInnerHTML={{ __html: post.content }} 
+/>
       </article>
 
       <section className="comments-section">
         <h2>Comments ({comments.length})</h2>
         
-        {/* Show comment form ONLY for regular users, NOT for admins */}
-        {isAuthenticated && !isAdmin ? (
+        {/* Comment form - ONLY for regular users (authenticated + not admin) */}
+        {isAuthenticated && !isAdmin && (
           <form onSubmit={handleCommentSubmit} className="comment-form">
             <h3>Leave a Comment</h3>
             <div className="form-group">
@@ -155,10 +154,10 @@ const PostPage = () => {
               {submitting ? 'Posting...' : 'Post Comment'}
             </button>
           </form>
-        ) : isAuthenticated && isAdmin ? (
-          /* Admins see nothing - no comment form, no message */
-          <div style={{ display: 'none' }}></div>
-        ) : (
+        )}
+
+        {/* Login prompt - ONLY for guests (not authenticated) */}
+        {!isAuthenticated && (
           <div style={{ 
             textAlign: 'center', 
             padding: '20px', 
@@ -173,9 +172,15 @@ const PostPage = () => {
           </div>
         )}
 
+        {/* Comments list - with role-specific empty messages */}
         <div className="comments-list">
           {comments.length === 0 ? (
-            <p className="no-comments">No comments yet. Be the first to comment!</p>
+            /* Different empty messages based on user role */
+            isAuthenticated && !isAdmin ? (
+              <p className="no-comments">No comments yet. Be the first to comment!</p>
+            ) : (
+              <p className="no-comments">No comments yet.</p>
+            )
           ) : (
             comments.map(comment => (
               <div key={comment._id} className="comment-card">
