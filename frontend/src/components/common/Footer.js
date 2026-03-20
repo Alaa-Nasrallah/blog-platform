@@ -41,7 +41,6 @@ const Footer = () => {
 
       <div className="footer-bottom">
         <p>&copy; {currentYear} BlogPlatform. All rights reserved.</p>
-        <p>Built with React, Node.js, and MongoDB</p>
       </div>
     </footer>
   );
