@@ -4,85 +4,122 @@ import { Link } from 'react-router-dom';
 const PrivacyPage = () => {
   return (
     <div className="legal-page">
-      <h1>Privacy Policy</h1>
+      <div className="legal-header">
+        <h1>Privacy Policy</h1>
+        <p className="last-updated">Last Updated: March 20, 2026</p>
+      </div>
+      
       <div className="legal-content">
-        <section>
-          <h2>Introduction</h2>
-          <p>At BlogPlatform, accessible from our website, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by BlogPlatform and how we use it.</p>
-          <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
-        </section>
+        <div className="legal-intro">
+          <p>BlogPlatform is a blog platform where users can read posts, leave comments (with star ratings), and administrators can manage content. This Privacy Policy explains what information we collect and how we use it.</p>
+        </div>
 
         <section>
           <h2>Information We Collect</h2>
-          <p>The personal information that you are asked to provide, and the reasons why you are asked to provide it, will be made clear to you at the point we ask you to provide your personal information.</p>
-          <p>If you contact us directly, we may receive additional information about you such as your name, email address, phone number, the contents of the message and/or attachments you may send us, and any other information you may choose to provide.</p>
-          <p>When you register for an account, we may ask for your contact information, including items such as name, email address, and password.</p>
+          <p>When you use BlogPlatform, we collect the following information:</p>
+          <ul>
+            <li><strong>Account Information:</strong> When you register, we collect your username and email address. Your password is encrypted using bcrypt and never stored in plain text.</li>
+            <li><strong>Content You Create:</strong> This includes blog posts (created by administrators) and comments (created by regular users). Each comment includes a 1-5 star rating.</li>
+            <li><strong>Profile Information:</strong> Your username is displayed with your comments and posts.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>User Roles and Permissions</h2>
+          <p>BlogPlatform has two types of users:</p>
+          <ul>
+            <li><strong>Regular Users:</strong> Can read posts and leave comments with star ratings (1-5 stars). Regular users cannot create or edit blog posts.</li>
+            <li><strong>Administrators:</strong> Can create, edit, and delete any blog post. Administrators can also soft-delete comments (they become hidden but remain in the database). Administrators can view all users and promote regular users to admin.</li>
+          </ul>
+          <p>Administrators do not have the ability to comment on posts.</p>
         </section>
 
         <section>
           <h2>How We Use Your Information</h2>
-          <p>We use the information we collect in various ways, including to:</p>
+          <p>We use your information to:</p>
           <ul>
-            <li>Provide, operate, and maintain our website</li>
-            <li>Improve, personalize, and expand our website</li>
-            <li>Understand and analyze how you use our website</li>
-            <li>Develop new products, services, features, and functionality</li>
-            <li>Communicate with you, either directly or through one of our partners, including for customer service, to provide you with updates and other information relating to the website</li>
-            <li>Send you emails</li>
-            <li>Find and prevent fraud</li>
+            <li>Create and manage your account</li>
+            <li>Display your comments (with star ratings) to other users</li>
+            <li>Allow administrators to moderate content (delete posts and soft-delete comments)</li>
+            <li>Allow administrators to promote users</li>
+            <li>Maintain and improve the platform</li>
           </ul>
         </section>
 
         <section>
-          <h2>Log Files</h2>
-          <p>BlogPlatform follows a standard procedure of using log files. These files log visitors when they visit websites. All hosting companies do this and a part of hosting services' analytics. The information collected by log files include internet protocol (IP) addresses, browser type, Internet Service Provider (ISP), date and time stamp, referring/exit pages, and possibly the number of clicks. These are not linked to any information that is personally identifiable. The purpose of the information is for analyzing trends, administering the site, tracking users' movement on the website, and gathering demographic information.</p>
-        </section>
-
-        <section>
-          <h2>Cookies and Web Beacons</h2>
-          <p>Like any other website, BlogPlatform uses 'cookies'. These cookies are used to store information including visitors' preferences, and the pages on the website that the visitor accessed or visited. The information is used to optimize the users' experience by customizing our web page content based on visitors' browser type and/or other information.</p>
-        </section>
-
-        <section>
-          <h2>Third Party Privacy Policies</h2>
-          <p>BlogPlatform's Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt-out of certain options.</p>
-        </section>
-
-        <section>
-          <h2>CCPA Privacy Rights (Do Not Sell My Personal Information)</h2>
-          <p>Under the CCPA, among other rights, California consumers have the right to:</p>
+          <h2>What We Do NOT Collect</h2>
+          <p>BlogPlatform does NOT collect:</p>
           <ul>
-            <li>Request that a business that collects a consumer's personal data disclose the categories and specific pieces of personal data that a business has collected about consumers.</li>
-            <li>Request that a business delete any personal data about the consumer that a business has collected.</li>
-            <li>Request that a business that sells a consumer's personal data, not sell the consumer's personal data.</li>
+            <li>Profile pictures</li>
+            <li>Biographical information</li>
+            <li>Phone numbers or physical addresses</li>
+            <li>Payment or financial information</li>
+            <li>Location data</li>
+            <li>Social media profiles</li>
           </ul>
         </section>
 
         <section>
-          <h2>GDPR Data Protection Rights</h2>
-          <p>We would like to make sure you are fully aware of all of your data protection rights. Every user is entitled to the following:</p>
+          <h2>Information Sharing</h2>
+          <p>We do not sell, trade, or rent your personal information to third parties. Your content (comments and posts) is visible to all visitors of the platform. Administrators can view user information for moderation purposes.</p>
+        </section>
+
+        <section>
+          <h2>Data Security</h2>
+          <p>We protect your information using industry-standard security practices:</p>
           <ul>
-            <li>The right to access – You have the right to request copies of your personal data.</li>
-            <li>The right to rectification – You have the right to request that we correct any information you believe is inaccurate.</li>
-            <li>The right to erasure – You have the right to request that we erase your personal data, under certain conditions.</li>
-            <li>The right to restrict processing – You have the right to request that we restrict the processing of your personal data, under certain conditions.</li>
-            <li>The right to object to processing – You have the right to object to our processing of your personal data, under certain conditions.</li>
-            <li>The right to data portability – You have the right to request that we transfer the data that we have collected to another organization, or directly to you, under certain conditions.</li>
+            <li>Passwords are hashed using bcrypt (never stored in plain text)</li>
+            <li>JWT tokens are used for authentication</li>
+            <li>Your data is stored in a secure MongoDB database</li>
+            <li>API endpoints are protected with authentication middleware</li>
+            <li>Role-based access control ensures users can only access what they're permitted to</li>
           </ul>
         </section>
 
         <section>
-          <h2>Children's Information</h2>
-          <p>Another part of our priority is adding protection for children while using the internet. We encourage parents and guardians to observe, participate in, and/or monitor and guide their online activity.</p>
-          <p>BlogPlatform does not knowingly collect any Personal Identifiable Information from children under the age of 13. If you think that your child provided this kind of information on our website, we strongly encourage you to contact us immediately and we will do our best efforts to promptly remove such information from our records.</p>
+          <h2>Your Rights and Choices</h2>
+          <p>Depending on your role, you can:</p>
+          <ul>
+            <li><strong>Regular Users:</strong> Edit or delete your own comments (deletion is handled by admins as soft delete)</li>
+            <li><strong>Administrators:</strong> Create, edit, and delete posts; soft-delete comments; promote users</li>
+            <li><strong>All Users:</strong> Delete your account by contacting an administrator</li>
+          </ul>
+          <p>Regular users cannot delete their own comments directly; only administrators can soft-delete comments.</p>
         </section>
 
         <section>
-          <h2>Contact Us</h2>
-          <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at support@blogplatform.com.</p>
+          <h2>Data Retention</h2>
+          <p>Your account remains active until you request deletion. When comments are "deleted" by administrators, they are soft-deleted (the `isDeleted` flag is set to true). These comments are hidden from regular users but remain in the database for administrative purposes. Posts deleted by administrators are permanently removed from the database.</p>
         </section>
+
+        <section>
+          <h2>Cookies</h2>
+          <p>We use cookies to store your JWT authentication token, which keeps you logged in. Cookies are essential for the platform to function properly. You can disable cookies in your browser settings, but you will need to log in each time you visit.</p>
+        </section>
+
+        <section>
+          <h2>Children's Privacy</h2>
+          <p>Our service is not intended for children under 13. We do not knowingly collect information from children under 13. If you believe a child has registered, please contact us and we will delete the account.</p>
+        </section>
+
+        <section>
+          <h2>Changes to This Policy</h2>
+          <p>If we make changes to this Privacy Policy, we will update the "Last Updated" date at the top of this page. Continued use of the platform after changes means you accept the updated policy.</p>
+        </section>
+
+        <section>
+  <h2>Contact Us</h2>
+  <p>If you have questions about this Privacy Policy or want to request deletion of your account, contact us:</p>
+  <div className="contact-info">
+    <p><strong>BlogPlatform</strong><br />
+    Email: <a href="mailto:support@blogplatform.com">support@blogplatform.com</a></p>
+  </div>
+</section>
       </div>
-      <Link to="/" className="back-home">← Back to Home</Link>
+      
+      <div className="legal-footer">
+        <Link to="/" className="back-home">← Back to Home</Link>
+      </div>
     </div>
   );
 };

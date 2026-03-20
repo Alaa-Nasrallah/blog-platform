@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
+  const scrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="footer">
       <div className="footer-content">
@@ -24,9 +29,8 @@ const Footer = () => {
         <div className="footer-section">
           <h4>Contact</h4>
           <ul>
-            <li>Email: support@blogplatform.com</li>
+            <li>Email: <a href="mailto:support@blogplatform.com">support@blogplatform.com</a></li>
             <li>Twitter: @blogplatform</li>
-            <li>GitHub: blog-platform</li>
           </ul>
         </div>
 
